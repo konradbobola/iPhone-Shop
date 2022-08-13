@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- ad -->
+    <section id="ad1">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <img src="static/images/iphone11b.png" alt="iphone">
+            </div>
+
+            <div class="col-lg-6 col-md-6 ">
+                <p>
+                    The iPhone 12 and 12 Mini is the first major redesign since the iPhone X. It features a chassis with flat edges, similar to the iPhone 4 and iPhone 5 designs, as well as the iPad Pro since 2018 and the 4th-generation iPad Air, which also released in 2020. The notch size is similar to previous iPhone models, despite speculation about a reduction in width. The borders around the display are thinner by 35% than any previous model. The new design also comes with a ceramic-hardened front glass, marketed as Ceramic Shield, while the back retains the previous generation Dual-Ion Exchange strengthened glass.
+                    On April 20, 2021 at Apple's Special Event “Spring Loaded”, Apple revealed a new purple color option which became available on April 30.
+                    The iPhone 12 and 12 Mini are available in six colors: Black, White, Product Red, Green, Blue, and Purple. The iPhone 12 and iPhone 12 Mini use Apple's six-core A14 Bionic processor, which contains a next-generation neural engine. They both have three internal storage options: 64, 128, and 256 GB[a]. Both also carry an IP68 water and dust resistance rating along with dirt and grime, and is water-resistant up to six meters (20 feet) for 30 minutes. However, the manufacturer warranty does not cover liquid damage to the phone.
+                    The iPhone 12 series are the first iPhone models to be supplied from launch without EarPods or a wall adapter, which Apple says was done to reduce carbon emissions and waste since most users already own them. Apple also claims 70% more boxes can fit on a pallet given the smaller box, and thus further reducing emissions
+                </p>
+                 <a href="{{url_for('available_models') }}"><button type="button" class="btn btn-dark">Go to iPhones!</button></a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ad2 -->
+    <section id="ad2">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                <img src="static/images/iphone11.png" alt="iphone">
+
+                </div>
+                <div class="col-lg-6 col-md-6 ">
+                <p>
+                    The iPhone 13 Pro and iPhone 13 Pro Max are smartphones designed, developed, and marketed by Apple Inc. They are the flagship smartphones in the fifteenth generation of the iPhone, succeeding the iPhone 12 Pro and iPhone 12 Pro Max. The devices were unveiled alongside the iPhone 13 and iPhone 13 Mini at an Apple Special Event at Apple Park in Cupertino, California on September 14, 2021, and became available ten days later, on September 24.
+                    Major upgrades over its predecessor include improved battery life, improved cameras and computational photography, rack focus for video in a new "Cinematic Mode" at 1080p 30 fps, Apple ProRes video recording, a new A15 Bionic system on a chip, and a variable 10-120 Hz display, marketed as ProMotion.
+                    The iPhone 13 Pro and iPhone 13 Pro Max's design is mostly unchanged from its predecessor. However, the rear camera module now covers a larger area due to the larger lenses. The Face ID and camera module on the front display, or "notch", is now 20% smaller than previous generations.
+                    The iPhone 13 Pro and 13 Pro Max are available in five colors: Silver, Graphite, Gold, Sierra Blue, and Alpine Green. Sierra Blue is a new color replacing Pacific Blue.
+                    On March 8, 2022, at Apple's Special Event "Peek Performance", Apple revealed a new Alpine Green color option, which became available on March 18.
+                </p>
+
+                    <a href="{{url_for('available_models') }}"><button type="button" class="btn btn-light">Go to iPhones!</button></a>
+
+                </div>
+            </div>
+    </section>
+
+{% endblock %}

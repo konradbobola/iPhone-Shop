@@ -1,0 +1,95 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+
+#logo {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* odstepy */
+.row {
+    padding-top:2.5rem;
+}
+
+
+/* navigation bar */
+.nav-item {
+    padding: 0 18px;
+}
+
+.nav-link {
+    padding: 0 18px;
+}
+
+/* ads */
+#ad1 {
+    text-align:center;
+    padding-right: 30px;  /* zeby tekst nie byl przy prawej krawedzi*/
+}
+
+#ad2 {
+    text-align:center;
+    background-color: black;
+    color:white;
+    padding-right: 30px;
+}
+
+/*form*/
+
+#form {
+    padding-top:2.5rem;
+}
+
+/*login & register*/
+
+.box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+}
+
+/* available_models */
+
+#slideshow{
+    padding: 0 18px;
+    text-align:center;
+    background-color:#DBD5EB;
+}
+
+
+h4 {
+    color:#DE3EE9;
+}
+
+img-ad {
+    width: 50%
+}
+
+
+/* pricing section */
+#iPhones {
+    padding:50px;
+    text-align:center;
+}
+
+.iPhones-col {
+    padding: 3% 2%;
+}
+
+
+/*add iphone*/
+.box2 {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+}

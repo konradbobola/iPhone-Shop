@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container" >
+{% if orders != []: %}
+   <table class="table table-striped ">
+      <thead>
+        <tr>
+            <th scope="col">Order Number</th>
+          <th scope="col">Models</th>
+          <th scope="col">Price</th>
+            <th scope="col">Status</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for order in orders %}
+        <tr>
+            <td>{{order.id}}</td>
+          <td>{{order.iphones}}</td>
+          <td>{{order.price}} PLN </td>
+            <td>
+                {% if order.status == 'waiting' %}
+                <span style="color:blue"> {{order.status }} </span>
+                {% elif order.status == 'ready' %}
+                <span style="color:green"> {{order.status }} </span>
+                {% else %}
+                <span style="color:red"> {{order.status }} </span>
+                {% endif %}
+
+            </td>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+{% endif %}
+{% if orders == []: %}
+    <center>
+    <br>
+    <h3> You order list is empty </h3>
+               <a href="{{url_for('available_models') }}"> <button type="button" class="btn btn-outline-primary">back to shop</button> </a>
+    </center>
+{% endif %}
+</div>
+
+{% endblock %}

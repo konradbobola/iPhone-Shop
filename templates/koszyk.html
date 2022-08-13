@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container" >
+  {% if do_zaplaty > 0 %}
+   <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">Model</th>
+          <th scope="col">Price</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+      {% for pozycja in pozycje %}
+        <tr>
+          <td>{{pozycja.iphone.model}}</td>
+          <td>{{pozycja.iphone.price}} PLN </td>
+          <td><a href="{{url_for('delete', id=pozycja.id)}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>`
+  {% endif %}
+  <center>
+    {% if do_zaplaty > 0 %}
+    <h3>You have to pay:    <b>{{do_zaplaty}} PLN</b> <br>  </h3>
+    {% endif %}
+
+    {% if do_zaplaty == 0 %}
+    <br>
+    <h3> You basket is empty </h3>
+    {% endif %}
+       <a href="{{url_for('available_models') }}"> <button type="button" class="btn btn-outline-primary">back to shop</button> </a>
+    {% if do_zaplaty > 0 %}
+      <a href="{{url_for('order') }}"><button type="button" class="btn btn-success">Submit your order</button>  </a>
+    {% endif %}
+  </center>
+
+</div>
+
+
+
+{% endblock %}

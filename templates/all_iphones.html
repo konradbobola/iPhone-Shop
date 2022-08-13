@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+<table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">model</th>
+      <th scope="col">price</th>
+      <th scope="col">display</th>
+        <th scope="col">ram</th>
+        <th scope="col">memory</th>
+        <th scope="col">camera</th>
+        <th scope="col">description</th>
+        <th scope="col">path</th>
+      <th scope="col">delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for iphone in iphones %}
+    <tr>
+      <td> {{iphone.id}}</td>
+      <td>{{iphone.model}}</td>
+      <td>{{iphone.price}}</td>
+        <td>{{iphone.display}}</td>
+        <td>{{iphone.ram}}</td>
+        <td>{{iphone.memory}}</td>
+        <td>{{iphone.camera}}</td>
+        <td>{{iphone.description}}</td>
+        <td>{{iphone.path}}</td>
+      <td><a href="{{url_for('delete_iphone', id=iphone.id)}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

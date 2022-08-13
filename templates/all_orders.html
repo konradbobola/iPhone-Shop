@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+<table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+        <th scope="col">first name</th>
+        <th scope="col">secend name</th>
+        <th scope="col">iPhones</th>
+      <th scope="col">street</th>
+      <th scope="col">zip code</th>
+        <th scope="col">apartment number</th>
+        <th scope="col">method</th>
+        <th scope="col">notes</th>
+        <th scope="col">price</th>
+        <th scope="col">status</th>
+        <th></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for order in orders %}
+    <tr>
+      <td> {{order.id}}</td>
+        <td> {{order.user.firstname}}</td>
+        <td> {{order.user.surname}}</td>
+        <td> {{order.iphones}}</td>
+        <td> {{order.street}}</td>
+        <td> {{order.zip_code}}</td>
+        <td> {{order.apartment_no}}</td>
+        <td> {{order.method}}</td>
+        <td> {{order.notes}}</td>
+        <td> {{order.price}} PLN</td>
+        <td> {{order.status}}</td>
+        <td><a href="{{url_for('change_order_status', id=order.id)}}"><button type="button" class="btn btn-outline-primary">Change status</button></a></td>
+        <br>
+         <td><a href="{{url_for('delete_order', id=order.id)}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

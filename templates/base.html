@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iPhone Shop</title>
+    <! bootstrap>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <! javascrip & jquary>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <! google fonts -zrobic>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <! ma byc na koncu>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+
+    <! do zmiany tla w description>
+    <style>
+    {% block styling %}
+
+    {% endblock %}
+    </style>
+
+</head>
+<body>
+
+    <!-- Logo -->
+    <section id="logo">
+        <div>
+            <h1>iPhone shop</h1>
+        </div>
+    </section>
+
+    <!-- Nav Bar -->
+
+
+    <section id="title">
+        <div class="container-fluid" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">  <! expand-large - jak duzy kolory navbar, tlo –>
+
+            {% if current_user.role != 'Seller' %}
+            <a class="navbar-brand" href="{{url_for('index')}}">
+                HOME
+
+
+                <img src="{{ url_for('static', filename='images/brand.png')}}" width="30" height="30" class="d-inline-block align-top" alt="Apple Brand">
+            </a>
+
+            <! przycisk –>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <! owdolanie do przycisku –>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <! podzial na elemnty na po lewej stronie –>
+                <ul class="navbar-nav" >
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('available_models') }}">Available models</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('contact')}}">Contact</a>
+                    </li>
+
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('userorder')}}">Orders</a>
+                    </li>
+                    {% endif  %}
+                </ul>
+                <! podzial na elemnty na po prawej stronie –>
+
+
+                <ul class="navbar-nav ml-auto">
+                    {% block navbar %}
+
+
+                    {% endblock %}
+
+                    {% if not current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}">Register</a>
+                    </li>
+                    {% endif %}
+                     {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('koszyk')}}">🛒 Koszyk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}">Log out</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+
+            {% endif %}
+
+ <! ___________________________________________________________________________________________________ ->
+            {% if current_user.role == 'Seller' %}
+
+            <! przycisk –>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <! owdolanie do przycisku –>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                <! podzial na elemnty na po lewej stronie –>
+                <ul class="navbar-nav" >
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('add_iphone') }}">Add iPhone</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('all_iphones') }}">All iPhones</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('all_orders') }}">All Orders</a>
+                    </li>
+
+                </ul>
+                <! podzial na elemnty na po prawej stronie –>
+
+
+                <ul class="navbar-nav ml-auto">
+
+
+                    {% if not current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}">Register</a>
+                    </li>
+                    {% endif %}
+                     {% if current_user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}">Log out</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+            {% endif %}
+        </nav>
+        </div>
+    </section>
+
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

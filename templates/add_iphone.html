@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="box2">
+    <h4>Add iPhone</h4>
+
+    {{ wtf.quick_form(form, novalidate=True) }}
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+
+<section id="form">
+
+    <div class="container" >
+        {% if msg_sent: %}
+            <h4>Successfully sent your message</h4>
+        {% else: %}
+          <h4>Don't hesitate to contact us!</h4>
+        <p>If you have any problem, question leave a note below!</p>
+        <p style="color:red">please do not use Polish characters as your message will not be sent</p>
+
+        {% endif %}
+         {{ wtf.quick_form(form, novalidate=True) }}
+    </div>
+
+</section>
+
+{% endblock %}

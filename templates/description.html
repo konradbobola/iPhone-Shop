@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block navbar %}
+{% endblock %}
+
+{% block styling %}
+{{ super() }}
+
+#title {
+    text-align: center;
+    background-color: #303030;
+}
+
+body {
+background-color: #303030;
+color: #ffffff;
+text-align:center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(237 237 237 / 50%);
+}
+
+.bg-light {
+    background-color: #303030!important;
+}
+
+.navbar-light .navbar-brand {
+    color: rgb(143 143 143);
+}
+
+h4{
+    color:white;
+}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+    <section id="iPhoneDescription">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6">
+                <img src="{{ url_for('static', filename=iphone.path )}}" alt="iphone">
+            </div>
+
+            <div class="col-lg-6 col-md-6 ">
+
+                <h3>{{ iphone.model}} </h3>
+                <h4>{{ iphone.price}} PLN</h4>
+                <h4>{{ iphone.display}} CALI </h4>
+                <h4>{{ iphone.ram}} GB RAM </h4>
+                <h4> {{ iphone.memory}}GB MEMORY </h4>
+                <h4>{{ iphone.camera}} PIXELS </h4>
+                <h4> {{ iphone.description}}</h4>
+
+                <div clas="container" style=" padding-right: 30px;"> <! zeby tekst nie byl przy prawej krawedzi >
+                <p>
+                    After months of rumors and speculation, Apple CEO Steve Jobs unveiled the first iPhone on Jan. 9, 2007. The device, which didn't actually go on sale until June, started at $499 for a 4GB model, $599 for the 8GB version (with a two-year contract)
+                </p>
+
+                {% if current_user.is_authenticated %}
+                <a href="{{url_for('buy', id=iphone.id)}}"><button type="button" class="btn btn-lg btn-outline-primary btn-block" >Buy now </button></a>
+                    {% else %}
+                    <a href="{{url_for('login')}}"><button type="button" class="btn btn-danger" >please log in first to buy an iPhone</button></a>
+
+
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
